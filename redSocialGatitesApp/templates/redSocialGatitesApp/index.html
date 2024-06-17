@@ -1,0 +1,51 @@
+{% extends 'redSocialGatitesApp/base.html' %}
+{% block title %}Inicio{% endblock %}
+
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'redSocialGatitesApp/css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="modal" id="miModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Inicio de sesión</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div>
+            <label for="inputEmail" class="form-label">Ingresa tu correo electrónico</label>
+            <input type="email" class="form-control" id="inputEmail">
+          </div>
+          <div>
+            <label for="inputPass" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="inputPass">
+          </div>
+          <div>
+            <input type="checkbox" class="form-check-input" id="inputRecuerdame">
+            <label class="form-check-label" for="inputRecuerdame">Recuérdame</label>
+          </div>
+        </form>
+        <button id="btnVerificar">Ingresar</button>
+        <a href="{% url 'muro' %}" class="boton">Continuar</a>
+        <a href="{% url 'crearUsuario' %}">¿No tienes cuenta? Regístrate</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container contenedor-glass">
+    <p>Bienvendies a Gatites donde cada ronroneo tiene su propia historia.</p>
+  <button type="button" class="btn btn-primary" id="btnAbrirModal">
+    Ingresar
+  </button>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'redSocialGatitesApp/js/index.js' %}"></script>
+{% endblock %}

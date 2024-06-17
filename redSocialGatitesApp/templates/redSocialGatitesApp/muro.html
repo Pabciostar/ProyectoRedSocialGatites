@@ -1,0 +1,77 @@
+{% extends 'redSocialGatitesApp/base.html' %}
+{% block title %}Muro{% endblock %}
+
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'redSocialGatitesApp/css/muro.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="contenedor-glass">
+  <div class="container" id="mainZone">
+    <!-- La primera parte de este código es la seccion para escribir algo para compartir o subir una imagen  -->
+    <div class="row">
+      <div class="col-5 ">
+        <div class="imgPerfilContainer">
+          <img src=" {% static  'redSocialGatitesApp/images/imgGatoPerfil.jpg' %} " alt="" id="imgPerfil">
+        </div>
+      </div>
+      <!-- Acá se encuentran los input y el boton -->
+      <div class="col-7">
+        <h2>Sube tu publicacion</h2>
+
+        <textarea class="form-control" id="textPublicacion" rows="3"></textarea>
+        <input class="form-control form-control-sm" id="imgPublicacion" type="file">
+
+        <button id="btnSubirPublicacion">Subir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- A continuacion se muestran las publicaciones que iran integrandose mediante programacion  -->
+  <div class="container" id="publicationsZone">
+    <div class="row">
+      <div class="card">
+        <img
+          src="{% static 'redSocialGatitesApp/images/publicacion4.avif' %}"
+          class="img.fluid" alt="gate">
+
+        <div class="card-body">
+          <h5 class="card-title">mishifus</h5>
+          <p class="card-text">la vida que merezco </p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="card">
+        <img src="{% static 'redSocialGatitesApp/images/publicacion3.jpg' %}" class="card-img-top img.fluid">
+        <div class="card-body">
+          <h5 class="card-title">mishifus</h5>
+          <p class="card-text">hoy mi humana no me limpio el arenero cuando se fue a su trabajo, creo que la
+            arañare
+            cuando vuelva jejeje</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="card">
+        <img src="{% static 'redSocialGatitesApp/images/publicacion1.jpg' %}" class="card-img-top img.fluid" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">mishifus</h5>
+          <p class="card-text">hoy, desperte a mi humana a las 5 am porque tenia hambre jejeje</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'redSocialGatitesApp/js/muro.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,9 @@
+.contenedor-glass {
+  max-width: 600px;
+  background: rgba(255, 246, 192, 0.51);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(14.2px);
+  -webkit-backdrop-filter: blur(14.2px);
+  border: 1px solid rgba(255, 246, 192, 1);
+}

@@ -1,0 +1,102 @@
+{% extends 'redSocialGatitesApp/base.html' %}
+{% block title %}Mi perfil{% endblock %}
+
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'redSocialGatitesApp/css/perfil.css' %}">
+{% endblock %}
+
+{% block content %}
+
+  <!-- Modal -->
+
+  <div class="modal" id="modalPerfil">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Encabezado del Modal -->
+        <div class="modal-header">
+          <h5 class="modal-title">Editar perfil</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Cuerpo del Modal -->
+        <div class="modal-body central-zone">
+          <div class="container" id="zonaEditarPerfil">
+            <div class="row">
+              <div class="col-6 imgPerfilContainer" id="imgPerfilContainerModal">
+                <img src="../images/imgGatoPerfil.jpg" alt="" id="img-perfil">
+              </div>
+              <div class="col-6">
+                <label for="inputNuevaImg" class="form-label">Sube una imagen</label>
+                <input class="form-control form-control-sm" id="inputNuevaImg" type="file">
+                <button id="btnCambiarImgPerfil">Cambiar imagen de perfil</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <p id="descripcionModal">Aprende como domesticar a tu humano en 3 simples pasos</p>
+              </div>
+              <div class="col-6">
+                <input type="text" id="inputNuevaDesc">
+                <button id="btnCambiarDesc">Cambiar descripcion</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Contenido del perfil -->
+  <div class="contenedor-glass container">
+        <!-- Esta fila contiene la imagen de perfil y otra información del usuario -->
+        <div class="row head-perfil">
+          <!-- Imagen de perfil -->
+          <div class="col-5 ">
+            <div class="imgPerfilContainer" id="imgPerfilContainer">
+              <img src="{% static 'redSocialGatitesApp/images/imgGatoPerfil.jpg' %}" alt="" id="img-perfil">
+            </div>
+          </div>
+          <!-- informacion del user -->
+          <div class="col-7">
+            <button id="btnAbrirModal">Editar perfil</button>
+
+            <p>Michifus</p>
+
+            <p id="descripcionPerfil">Aprende como domesticar a tu humano en 3 simples pasos</p>
+          </div>
+        </div>
+        
+        <!-- Esta fila y las que vienen contienen publicaciones -->
+        <div class="row publications-zone">
+          <div class="col-4 publications-space">
+            <img src="https://th.bing.com/th/id/OIG3.5XDwe.FDR4aripK9x4r3?pid=ImgGn" alt="">
+          </div>
+          <div class="col-4 publications-space">
+            <img src="https://th.bing.com/th/id/OIG2.Gs2Qsbal_xcJu1wOoh_v?pid=ImgGn" alt="">
+          </div>
+          <div class="col-4 publications-space">
+            <img src="https://th.bing.com/th/id/OIG4.nTqWGPKOx_nKioInAyO_?pid=ImgGn" alt="">
+          </div>
+        </div>
+
+        <div class="row publications-zone">
+          <div class="col-4 publications-space">
+            <img src="https://th.bing.com/th/id/OIG3.8Vc8bYWgoRRVi8jEZlNI?pid=ImgGn" alt="">
+          </div>
+          <div class="col-4 publications-space">
+            <img src="" alt="">
+          </div>
+          <div class="col-4 publications-space">
+            <img src="" alt="">
+          </div>
+        </div>
+
+  </div>
+
+
+  {% endblock %}
+
+  {% block extra_js %}
+  <script src="{% static 'redSocialGatitesApp/js/perfil.js' %}"></script>
+  {% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'redSocialGatitesApp/base.html' %}
+{% block title %}Explora Amichis{% endblock %}
+
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'redSocialGatitesApp/css/amichis.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="contenedor-glass">
+  <div class="container" id="contenedor-gatos">
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'redSocialGatitesApp/js/amichis.js' %}"></script>
+{% endblock %}

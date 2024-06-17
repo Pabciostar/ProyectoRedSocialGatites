@@ -1,0 +1,44 @@
+{% extends 'redSocialGatitesApp/base.html' %}
+{% block title %}Inicio{% endblock %}
+
+{% block extra_head %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'redSocialGatitesApp/css/crearUsuario.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="contenedor-glass">
+  <form>
+    <h1>Registra Tu Usuario</h1>
+    <div>
+      <label for="inputEmail" class="form-label">Ingresa tu correo electrónico</label>
+      <input type="email" class="form-control" id="inputEmail">
+    </div>
+
+    <div>
+      <label for="inputNombre" class="form-label">Ingresa nombre de usuario</label>
+      <input type="text" class="form-control" id="inputNombre">
+    </div>
+
+    <div>
+      <label for="inputPass" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" id="inputPass">
+    </div>
+
+    <div>
+      <label for="inputEdad" class="form-label">Ingrese la edad del michi</label>
+      <input type="number" class="form-control" id="inputEdad">
+    </div>
+
+    <input id="enviarInformacion" type="submit" value="Enviar">
+    <a class="boton" href="index">Volver</a>
+
+  </form>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'redSocialGatitesApp/js/crearUsuario.js' %}"></script>
+{% endblock %}

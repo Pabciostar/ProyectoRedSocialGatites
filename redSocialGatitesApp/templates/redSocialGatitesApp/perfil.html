@@ -48,7 +48,7 @@
 
 
   <!-- Contenido del perfil -->
-  <div class="contenedor-glass container">
+  <div class="contenedor-glass">
         <!-- Esta fila contiene la imagen de perfil y otra información del usuario -->
         <div class="row head-perfil">
           <!-- Imagen de perfil -->
@@ -61,12 +61,17 @@
           <div class="col-7">
             <button id="btnAbrirModal">Editar perfil</button>
 
-            <p>Michifus</p>
+            <p>{{username}}</p>
+
+            <p>{{first_name}}</p>
+            <p>{{last_name}}</p>
+
+            <p>{{email}}</p>
 
             <p id="descripcionPerfil">Aprende como domesticar a tu humano en 3 simples pasos</p>
           </div>
         </div>
-        
+
         <!-- Esta fila y las que vienen contienen publicaciones -->
         <div class="row publications-zone">
           <div class="col-4 publications-space">

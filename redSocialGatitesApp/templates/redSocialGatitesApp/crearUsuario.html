@@ -9,26 +9,32 @@
 
 {% block content %}
 <div class="contenedor-glass">
-  <form>
+  <form action="index" method="POST">
+    {% csrf_token %}
     <h1>Registra Tu Usuario</h1>
     <div>
-      <label for="inputEmail" class="form-label">Ingresa tu correo electrónico</label>
-      <input type="email" class="form-control" id="inputEmail">
+      <label for="inputPrimerNombre" class="form-label">Primer nombre de le dueñe</label>
+      <input type="text" class="form-control" name="primerNombre" id="inputPrimerNombre">
     </div>
 
     <div>
-      <label for="inputNombre" class="form-label">Ingresa nombre de usuario</label>
-      <input type="text" class="form-control" id="inputNombre">
+      <label for="inputApellido" class="form-label">Apellido de le dueñe</label>
+      <input type="text" class="form-control" name="apellido" id="inputApellido">
+    </div>
+
+    <div>
+      <label for="inputUsername" class="form-label">Nombre gatite (username)</label>
+      <input type="text" class="form-control" name="username" id="inputUsername">
+    </div>
+
+    <div>
+      <label for="inputEmail" class="form-label">Correo electrónico</label>
+      <input type="email" class="form-control" name="email" id="inputEmail">
     </div>
 
     <div>
       <label for="inputPass" class="form-label">Contraseña</label>
-      <input type="password" class="form-control" id="inputPass">
-    </div>
-
-    <div>
-      <label for="inputEdad" class="form-label">Ingrese la edad del michi</label>
-      <input type="number" class="form-control" id="inputEdad">
+      <input type="password" class="form-control" id="inputPass" name="password">
     </div>
 
     <input id="enviarInformacion" type="submit" value="Enviar">
@@ -40,5 +46,4 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'redSocialGatitesApp/js/crearUsuario.js' %}"></script>
 {% endblock %}

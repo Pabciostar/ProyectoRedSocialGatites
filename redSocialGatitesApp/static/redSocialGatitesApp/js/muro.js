@@ -5,7 +5,7 @@ $(document).ready(function () {
         var imgVal = $('#imgPublicacion').val();
         console.log(descVal);
         //La imagen está previamente seleccionada mientras tanto
-        var imgVal = '../images/publicacion0.jp';
+        var imgVal = '../images/publicacion0.jpg';
 
         //Se colocan dentro de una card
 

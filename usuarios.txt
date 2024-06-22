@@ -1,0 +1,15 @@
+usuario 1
+nombre:uwu
+contraseña: 12345uwu
+
+usuario2
+nombre: ferrata
+contraseña: 12345ferra
+
+usuario3
+nombre: pabcio
+contraseña: 12345pab
+
+usuario4
+nombre: momo
+contraseña: 12345lolo

@@ -16,20 +16,22 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="login" method="POST">
+          {% csrf_token %}
           <div>
-            <label for="inputEmail" class="form-label">Ingresa tu correo electrónico</label>
-            <input type="email" class="form-control" id="inputEmail">
+            <label for="username" class="form-label">Ingresa tu nombre de usuario</label>
+            <input type="text" class="form-control" name="username" id="username">
           </div>
           <div>
-            <label for="inputPass" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="inputPass">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" name="password" id="password">
           </div>
+
           <div>
-            <input type="checkbox" class="form-check-input" id="inputRecuerdame">
-            <label class="form-check-label" for="inputRecuerdame">Recuérdame</label>
+            <button type="submit" id="btnVerificar">Ingresar</button>
           </div>
         </form>
+
         <button id="btnVerificar">Ingresar</button>
         <a href="{% url 'muro' %}" class="boton">Continuar</a>
         <a href="{% url 'crearUsuario' %}">¿No tienes cuenta? Regístrate</a>

@@ -7,3 +7,7 @@
   -webkit-backdrop-filter: blur(14.2px);
   border: 1px solid rgba(255, 246, 192, 1);
 }
+
+ div label{
+  width: 100%;
+}

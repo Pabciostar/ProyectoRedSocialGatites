@@ -17,11 +17,20 @@ body{
   .navbar {
     width: 100%;
     margin-bottom: 50px;
-    height: 100px;
+    height: 130px;
     background: rgba(255, 248, 146, 0.09);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(3.2px);
     -webkit-backdrop-filter: blur(3.2px); 
+    position: relative;
+    z-index: 1100;
+  }
+
+  .navbar-collapse.collapse.show {
+    background: rgba(246, 235, 190, 0.952); 
+    border-radius: 0 0 15px 15px; 
+    padding: 1rem; 
+    z-index: 1061;
   }
 
   .contenedor-glass {

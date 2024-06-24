@@ -7,3 +7,4 @@ __pycache__/
 .idea/
 media/
 staticfiles/
+db.sqlite3

@@ -66,6 +66,6 @@ def login_user(request):
     usuario = authenticate(request, username = username, password = password)
     if usuario is not None:
         login(request, usuario) 
-        return render(request, 'redSocialGatitesApp/perfil.html')
+        return redirect('perfil')
     else:
         return redirect('index')

@@ -1,7 +1,6 @@
 newvenv/ 
 *.pyc
 __pycache__/
-*/migrations/
 .env
 .vscode/
 .idea/

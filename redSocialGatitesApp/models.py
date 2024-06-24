@@ -9,7 +9,7 @@ class Imagen(models.Model):
     id_usuario = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return self.url_imagen
+        return f"Imagen {self.pk}"
 
 
 class Publicacion(models.Model):
@@ -25,8 +25,9 @@ class Publicacion(models.Model):
 
 class Perfil_usuario(models.Model):
     id_usuario= models.OneToOneField(User, on_delete=models.CASCADE)
-    id_imagen= models.ForeignKey(Imagen, on_delete=models.CASCADE)
-    descripcion = models.CharField(max_length=200)
+    url_imagen= models.TextField(null=True, blank=True)
+    nombre_imagen = models.TextField(null=True, blank=True)
+    descripcion = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self) -> str:
         return f'perfil del usuario {self.id_usuario}' 

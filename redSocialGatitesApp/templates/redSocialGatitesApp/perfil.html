@@ -22,24 +22,37 @@
         <div class="modal-body central-zone">
           <div class="container" id="zonaEditarPerfil">
             <div class="row">
+              {% if url_imagen %}
               <div class="col-6 imgPerfilContainer" id="imgPerfilContainerModal">
-                <img src="../images/imgGatoPerfil.jpg" alt="" id="img-perfil">
+                <img src="{{ url_imagen }}" alt="" id="img-perfil">
               </div>
-              <div class="col-6">
-                <label for="inputNuevaImg" class="form-label">Sube una imagen</label>
-                <input class="form-control form-control-sm" id="inputNuevaImg" type="file">
-                <button id="btnCambiarImgPerfil">Cambiar imagen de perfil</button>
+              {% else %}
+                <div class="col-6 imgPerfilContainer" id="imgPerfilContainerModal">
+                  <img src="{% static 'redSocialGatitesApp/images/imgGatoPerfil.jpg' %}" alt="" id="img-perfil">
+                </div>
+                {% endif %}
+              <form action="crear_perfil" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="col-6">
+                  <label for="inputNuevaImg" class="form-label">Sube una imagen</label>
+                  <input class="form-control form-control-sm" id="inputNuevaImg" type="file" name="imagen">
+                  <button id="btnCambiarImgPerfil">Cambiar imagen de perfil</button>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-6">
-                <p id="descripcionModal">Aprende como domesticar a tu humano en 3 simples pasos</p>
+              <div class="row">
+                <div class="col-6">
+                  {% if descripcion %}
+                  <p>{{descripcion}}</p>
+                {% else %}
+                  <p>NO HA CREADO SU PERFIL USUARIO 😉</p>
+                {% endif %}
+                </div>
+                <div class="col-6">
+                  <input type="text" id="inputNuevaDesc" name="descripcion">
+                  <button id="btnCambiarDesc" type="submit">Cambiar descripcion</button>
+                </div>
               </div>
-              <div class="col-6">
-                <input type="text" id="inputNuevaDesc">
-                <button id="btnCambiarDesc">Cambiar descripcion</button>
-              </div>
-            </div>
+              </form>
           </div>
         </div>
       </div>
@@ -53,9 +66,15 @@
         <div class="row head-perfil">
           <!-- Imagen de perfil -->
           <div class="col-5 ">
+            {% if url_imagen %}
+              <div class="imgPerfilContainer" id="imgPerfilContainer">
+                <img src="{{ url_imagen }}" alt="" id="img-perfil">
+              </div>
+            {% else %}
             <div class="imgPerfilContainer" id="imgPerfilContainer">
               <img src="{% static 'redSocialGatitesApp/images/imgGatoPerfil.jpg' %}" alt="" id="img-perfil">
             </div>
+            {% endif %}
           </div>
           <!-- informacion del user -->
           <div class="col-7">
@@ -68,7 +87,11 @@
 
             <p>{{email}}</p>
 
-            <p id="descripcionPerfil">Aprende como domesticar a tu humano en 3 simples pasos</p>
+            {% if descripcion %}
+              <p>{{descripcion}}</p>
+            {% else %}
+              <p>NO HA CREADO SU PERFIL USUARIO 😉</p>
+            {% endif %}
           </div>
         </div>
 

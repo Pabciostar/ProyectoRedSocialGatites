@@ -5,7 +5,15 @@ document.addEventListener('DOMContentLoaded', function () {
     btnAbrirModal.addEventListener('click', function () {
         miModal.show();
     });
+    var btnAbrirModal2 = document.getElementById('editarPublicacion');
+    var miModal2 = new bootstrap.Modal(document.getElementById('modalPublicacion'));
+
+    btnAbrirModal2.addEventListener('click', function () {
+        miModal2.show();
+    });
 });
+
+
 
 
 

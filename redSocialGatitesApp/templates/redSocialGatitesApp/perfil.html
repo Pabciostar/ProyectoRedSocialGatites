@@ -8,123 +8,157 @@
 
 {% block content %}
 
-  <!-- Modal -->
+<!-- Modal -->
 
-  <div class="modal" id="modalPerfil">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <!-- Encabezado del Modal -->
-        <div class="modal-header">
-          <h5 class="modal-title">Editar perfil</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <!-- Cuerpo del Modal -->
-        <div class="modal-body central-zone">
-          <div class="container" id="zonaEditarPerfil">
-            <div class="row">
-              {% if url_imagen %}
-              <div class="col-6 imgPerfilContainer" id="imgPerfilContainerModal">
-                <img src="{{ url_imagen }}" alt="" id="img-perfil">
+<div class="modal" id="modalPerfil">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Encabezado del Modal -->
+      <div class="modal-header">
+        <h5 class="modal-title">Editar perfil</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <!-- Cuerpo del Modal -->
+      <div class="modal-body central-zone">
+        <div class="container" id="zonaEditarPerfil">
+          <div class="row">
+            {% if url_imagen %}
+            <div class="col-6 imgPerfilContainer" id="imgPerfilContainerModal">
+              <img src="{{ url_imagen }}" alt="" id="img-perfil">
+            </div>
+            {% else %}
+            <div class="col-6 imgPerfilContainer" id="imgPerfilContainerModal">
+              <img src="{% static 'redSocialGatitesApp/images/imgGatoPerfil.jpg' %}" alt="" id="img-perfil">
+            </div>
+            {% endif %}
+            <form action="crear_perfil" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="col-6">
+                <label for="inputNuevaImg" class="form-label">Sube una imagen</label>
+                <input class="form-control form-control-sm" id="inputNuevaImg" type="file" name="imagen">
+                <button id="btnCambiarImgPerfil">Cambiar imagen de perfil</button>
               </div>
-              {% else %}
-                <div class="col-6 imgPerfilContainer" id="imgPerfilContainerModal">
-                  <img src="{% static 'redSocialGatitesApp/images/imgGatoPerfil.jpg' %}" alt="" id="img-perfil">
-                </div>
-                {% endif %}
-              <form action="crear_perfil" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="col-6">
-                  <label for="inputNuevaImg" class="form-label">Sube una imagen</label>
-                  <input class="form-control form-control-sm" id="inputNuevaImg" type="file" name="imagen">
-                  <button id="btnCambiarImgPerfil">Cambiar imagen de perfil</button>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  {% if descripcion %}
-                  <p>{{descripcion}}</p>
-                {% else %}
-                  <p>NO HA CREADO SU PERFIL USUARIO 😉</p>
-                {% endif %}
-                </div>
-                <div class="col-6">
-                  <input type="text" id="inputNuevaDesc" name="descripcion">
-                  <button id="btnCambiarDesc" type="submit">Cambiar descripcion</button>
-                </div>
-              </div>
-              </form>
           </div>
+          <div class="row">
+            <div class="col-6">
+              {% if descripcion %}
+              <p>{{descripcion}}</p>
+              {% else %}
+              <p>NO HA CREADO SU PERFIL USUARIO 😉</p>
+              {% endif %}
+            </div>
+            <div class="col-6">
+              <input type="text" id="inputNuevaDesc" name="descripcion">
+              <button id="btnCambiarDesc" type="submit">Cambiar descripcion</button>
+            </div>
+          </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
+</div>
 
 
-  <!-- Contenido del perfil -->
-  <div class="contenedor-glass">
-        <!-- Esta fila contiene la imagen de perfil y otra información del usuario -->
-        <div class="row head-perfil">
-          <!-- Imagen de perfil -->
-          <div class="col-5 ">
-            {% if url_imagen %}
-              <div class="imgPerfilContainer" id="imgPerfilContainer">
-                <img src="{{ url_imagen }}" alt="" id="img-perfil">
-              </div>
-            {% else %}
-            <div class="imgPerfilContainer" id="imgPerfilContainer">
-              <img src="{% static 'redSocialGatitesApp/images/imgGatoPerfil.jpg' %}" alt="" id="img-perfil">
+<div class="modal" id="modalPublicacion">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Encabezado del Modal -->
+      <div class="modal-header">
+        <h5 class="modal-title">Editar publicacion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <!-- Cuerpo del Modal -->
+      <div class="modal-body contenedor-glass">
+        <div class="contenedor-glass">
+          <form enctype="multipart/form-data" action="editarPublicacion" method="POST">
+            {% csrf_token %}
+            <h1>Edita tu publicación</h1>
+            <div>
+              <label for="inputTituloPublicacion" class="form-label">Ingresa un nuevo título</label>
+              <input type="text" class="form-control" name="tituloPublicacion" id="inputTituloPublicacion">
             </div>
-            {% endif %}
-          </div>
-          <!-- informacion del user -->
-          <div class="col-7">
-            <button id="btnAbrirModal">Editar perfil</button>
 
-            <p>{{username}}</p>
+            <div>
+              <label for="inputImagen" class="form-label">Cambia la imagen</label>
+              <input type="file" class="form-control" name="imagen" id="inputImagen">
+            </div>
 
-            <p>{{first_name}}</p>
-            <p>{{last_name}}</p>
+            <div>
+              <label for="inputDescripcionPublicación" class="form-label">Nueva descripción</label>
+              <textarea name="descripcion" id="inputDescripcionPublicación"></textarea>
+            </div>
 
-            <p>{{email}}</p>
+            <input id="enviarInformacion" type="submit" value="Enviar">
+            <a class="boton" href="perfil">Volver</a>
 
-            {% if descripcion %}
-              <p>{{descripcion}}</p>
-            {% else %}
-              <p>NO HA CREADO SU PERFIL USUARIO 😉</p>
-            {% endif %}
-          </div>
+          </form>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <!-- Esta fila y las que vienen contienen publicaciones -->
-        <div class="row publications-zone">
-          <div class="col-4 publications-space">
-            <img src="https://th.bing.com/th/id/OIG3.5XDwe.FDR4aripK9x4r3?pid=ImgGn" alt="">
-          </div>
-          <div class="col-4 publications-space">
-            <img src="https://th.bing.com/th/id/OIG2.Gs2Qsbal_xcJu1wOoh_v?pid=ImgGn" alt="">
-          </div>
-          <div class="col-4 publications-space">
-            <img src="https://th.bing.com/th/id/OIG4.nTqWGPKOx_nKioInAyO_?pid=ImgGn" alt="">
-          </div>
-        </div>
 
-        <div class="row publications-zone">
-          <div class="col-4 publications-space">
-            <img src="https://th.bing.com/th/id/OIG3.8Vc8bYWgoRRVi8jEZlNI?pid=ImgGn" alt="">
-          </div>
-          <div class="col-4 publications-space">
-            <img src="" alt="">
-          </div>
-          <div class="col-4 publications-space">
-            <img src="" alt="">
-          </div>
-        </div>
+<!-- Contenido del perfil -->
+<div class="contenedor-glass">
+  <!-- Esta fila contiene la imagen de perfil y otra información del usuario -->
+  <div class="row head-perfil">
+    <!-- Imagen de perfil -->
+    <div class="col-5 ">
+      {% if url_imagen %}
+      <div class="imgPerfilContainer" id="imgPerfilContainer">
+        <img src="{{ url_imagen }}" alt="" id="img-perfil">
+      </div>
+      {% else %}
+      <div class="imgPerfilContainer" id="imgPerfilContainer">
+        <img src="{% static 'redSocialGatitesApp/images/imgGatoPerfil.jpg' %}" alt="" id="img-perfil">
+      </div>
+      {% endif %}
+    </div>
+    <!-- informacion del user -->
+    <div class="col-7">
+      <button id="btnAbrirModal">Editar perfil</button>
+
+      <p>{{username}}</p>
+
+      <p>{{first_name}}</p>
+      <p>{{last_name}}</p>
+
+      <p>{{email}}</p>
+
+      {% if descripcion %}
+      <p>{{descripcion}}</p>
+      {% else %}
+      <p>NO HA CREADO SU PERFIL USUARIO 😉</p>
+      {% endif %}
+    </div>
+    <a class="boton" href="crearPublicacion">Sube tu publicacion</a>
 
   </div>
 
+  <!-- Esta fila y las que vienen contienen publicaciones -->
+  {% for publicacion in publicaciones %}
+  <div class="row">
+    <div class="card">
+      <img src="{{ publicacion.url_imagen }}" class="img.fluid" alt="gate">
 
-  {% endblock %}
+      <div class="card-body">
+        <h6 class="card-title">{{ publicacion.titulo }}</h6>
+        <p class="card-text">{{ publicacion.texto}} </p>
+        <a id="editarPublicacion" type="button" href="">Editar</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
 
-  {% block extra_js %}
-  <script src="{% static 'redSocialGatitesApp/js/perfil.js' %}"></script>
-  {% endblock %}
+
+
+</div>
+
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'redSocialGatitesApp/js/perfil.js' %}"></script>
+{% endblock %}

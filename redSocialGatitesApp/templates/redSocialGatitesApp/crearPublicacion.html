@@ -1,0 +1,39 @@
+{% extends 'redSocialGatitesApp/base.html' %}
+{% block title %}Crear publicación{% endblock %}
+
+{% block extra_head %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'redSocialGatitesApp/css/crearUsuario.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="contenedor-glass">
+    <form enctype="multipart/form-data" action="crearPublicacion" method="POST">
+        {% csrf_token %}
+        <h1>Crea tu publicación</h1>
+        <div>
+            <label for="inputTituloPublicacion" class="form-label">Ingresa un título para la publicación</label>
+            <input type="text" class="form-control" name="tituloPublicacion" id="inputTituloPublicacion">
+        </div>
+
+        <div>
+            <label for="inputImagen" class="form-label">Selecciona una imagen (opcional)</label>
+            <input type="file" class="form-control" name="imagen" id="inputImagen">
+        </div>
+
+        <div>
+            <label for="inputDescripcionPublicación" class="form-label">Ingresa una descripcion para tu publicaciuón (obligatorio)</label>
+            <textarea name="descripcion" id="inputDescripcionPublicación"></textarea>
+        </div>
+
+        <input id="enviarInformacion" type="submit" value="Enviar">
+        <a class="boton" href="perfil">Volver</a>
+
+    </form>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}

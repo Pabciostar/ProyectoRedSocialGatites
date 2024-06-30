@@ -14,13 +14,15 @@ class Imagen(models.Model):
 
 class Publicacion(models.Model):
     texto = models.CharField(max_length=200)
+    titulo = models.CharField(max_length=200, default='titulo por defecto')
     fecha = models.DateTimeField("date published")
     fecha_actualizacion = models.DateTimeField(null = True)
-    id_imagen = models.ForeignKey(Imagen, on_delete=models.CASCADE)
+    url_imagen= models.TextField(null=True, blank=True)
+    nombre_imagen = models.TextField(null=True, blank=True)
     id_usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self) -> str:
-        return f'publicacion del usuario {self.id_usuario}' 
+        return f'{self.titulo}'
 
 
 class Perfil_usuario(models.Model):

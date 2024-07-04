@@ -10,5 +10,6 @@ urlpatterns = [
     path('crearUsuario', views.crearUsuario, name='crearUsuario'),
     path('muro', views.muro, name='muro'),
     path('login', views.login_user, name='login'),
+    path('crear_perfil', views.crear_perfil, name='crear_perfil'),
 
 ]

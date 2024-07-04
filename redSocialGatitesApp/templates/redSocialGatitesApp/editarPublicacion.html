@@ -1,0 +1,45 @@
+{% extends 'redSocialGatitesApp/base.html' %}
+{% block title %}Editar publicación{% endblock %}
+
+{% block extra_head %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'redSocialGatitesApp/css/crearUsuario.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="contenedor-glass">
+    <form enctype="multipart/form-data" action="{% url 'editarPublicacionPOST' %}" method="POST">
+        {% csrf_token %}
+        <h1>Edita tu publicación</h1>
+        <input type="text" value="{{publicacion.id}}" hidden name="id">
+        <input type="text" value="{{publicacion.fecha}}" hidden name="fecha">
+        <input type="text" value="{{publicacion.url_imagen}}" hidden name="url_imagen_anterior">
+        <input type="text" value="{{publicacion.nombre_imagen}}" hidden name="nombre_imagen_anterior">
+        <div>
+          <label for="inputTituloPublicacion" class="form-label">Ingresa un nuevo título</label>
+          <input type="text" class="form-control" name="tituloPublicacion" id="inputTituloPublicacion" value="{{publicacion.titulo}}">
+        </div>
+
+        <div>
+            <img src="{{publicacion.url_imagen }}" alt="" style="width: 200px; height: 200px;">
+          <label for="inputImagen" class="form-label">Cambia la imagen</label>
+          <input type="file" class="form-control" name="imagen" id="inputImagen">
+        </div>
+
+        <div>
+          <label for="inputDescripcionPublicación" class="form-label">Nueva descripción</label>
+          <textarea name="descripcion" id="inputDescripcionPublicación">{{publicacion.texto}}</textarea>
+        </div>
+
+        
+        <input type="submit" value="Enviar">
+        <a class="boton" href="perfil">Volver</a>
+
+      </form>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}

@@ -11,7 +11,8 @@
 <div class="contenedor-glass">
   <form action="index" method="POST">
     {% csrf_token %}
-    <h1>Registra Tu Usuario</h1>
+    {{formulario.as_table}}
+    <!-- <h1>Registra Tu Usuario</h1>
     <div>
       <label for="inputPrimerNombre" class="form-label">Primer nombre de le dueñe</label>
       <input type="text" class="form-control" name="primerNombre" id="inputPrimerNombre">
@@ -35,7 +36,7 @@
     <div>
       <label for="inputPass" class="form-label">Contraseña</label>
       <input type="password" class="form-control" id="inputPass" name="password">
-    </div>
+    </div> -->
 
     <input id="enviarInformacion" type="submit" value="Enviar">
     <a class="boton" href="index">Volver</a>

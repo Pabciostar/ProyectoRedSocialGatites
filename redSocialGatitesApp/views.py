@@ -6,12 +6,18 @@ from django.contrib.auth import authenticate, login
 from django.core.files.storage import FileSystemStorage
 from datetime import date, datetime
 from .forms import FormularioCrearUsuario
+from django.contrib.auth.hashers import make_password
+
 # Create your views here.
 
 def index(request):
     context={}
     if request.method == 'POST':
-        formulario = FormularioCrearUsuario(request.POST)
+
+        post_data = request.POST.copy()  # Hacer una copia del diccionario POST
+        post_data['password'] = make_password(post_data['password'])  # Modificar el campo necesario
+
+        formulario = FormularioCrearUsuario(post_data)
         if formulario.is_valid():
             formulario.save()
     #     primerNombre = request.POST['primerNombre']

@@ -92,6 +92,7 @@ def perfil(request):
 def crearUsuario(request):
     if request.method == 'GET':
         formulario = FormularioCrearUsuario()
+        n3 = 3
     context={'formulario': formulario}
     return render(request, 'redSocialGatitesApp/crearUsuario.html', context)
 
@@ -159,7 +160,6 @@ def crear_publicacion(request):
         print(request.POST['tituloPublicacion'])
         publicacion = None
 
-        # Actualiza perfil si existe, si no entonces se crea.
         try:
             publicacion = Publicacion(id_usuario = request.user)
         except Exception as error:

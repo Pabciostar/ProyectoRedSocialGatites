@@ -39,3 +39,6 @@ class Comentario(models.Model):
 
     def __str__(self) -> str:
         return f'comentario del usuario {self.id_usuario}' 
+    
+class Imagen(models.Model):
+    archivo = models.CharField(max_length=100)

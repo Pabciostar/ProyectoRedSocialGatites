@@ -1,0 +1,14 @@
+Trabajo realizado por:
+- Pablo Ferrada
+- Pablo López
+
+Link de GitHub:
+https://github.com/Pabciostar/ProyectoRedSocialGatites.git
+
+Datos super usuario:
+user: admin
+pass: 1234
+
+Sección: 006_V
+
+Grupo: 5

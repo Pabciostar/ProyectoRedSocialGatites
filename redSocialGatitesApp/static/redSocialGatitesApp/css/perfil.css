@@ -52,3 +52,9 @@ body{
     top: 0;
     left: 0;
   }
+
+  .modal-dialog {
+    margin-top: 200px;
+    position: relative;
+    z-index: 1300;
+  }

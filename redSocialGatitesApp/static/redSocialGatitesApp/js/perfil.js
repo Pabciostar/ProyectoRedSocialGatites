@@ -1,9 +1,8 @@
-document.addEventListener('DOMContentLoaded', function () {
-    var btnAbrirModal = document.getElementById('btnAbrirModal');
+$(document).ready(function() {
+    var btnAbrirModal = $('#btnAbrirModal');
     var miModal = new bootstrap.Modal(document.getElementById('modalPerfil'));
-
-    btnAbrirModal.addEventListener('click', function () {
+    
+    btnAbrirModal.on('click', function() {
         miModal.show();
     });
-    
 });
